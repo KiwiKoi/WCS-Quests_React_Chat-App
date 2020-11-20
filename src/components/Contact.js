@@ -7,16 +7,18 @@ const online = true;
 
 let status = null;
 
-const Contact = () => {
+const Contact = (props) => {
   online ? (status = "Online") : (status = "Offline");
 
   return (
     <div className="Contact">
-      <img className="avatar" src={avatar} alt="profile-pic" />
+      <img className="avatar" src={props.avatar} alt={props.name} />
       <div>
-        <h2 className="name">{name}</h2>
+        <h2 className="name">{props.name}</h2>
         <div className="status">
-          <div className={online ? "status-online" : "status-offline"}></div>
+          <div
+            className={props.online ? "status-online" : "status-offline"}
+          ></div>
           <p className="status-text">{status}</p>
         </div>
       </div>
